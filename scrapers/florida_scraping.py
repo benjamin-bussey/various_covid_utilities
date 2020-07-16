@@ -19,13 +19,13 @@ def download_fl_report():
 
     response = requests.get(URL)
 
-    filename = Path('report_pulls/fl_summary_pdf_{}.pdf'.format(today))
+    filename = Path('../state_data/florida/report_pulls/fl_summary_pdf_{}.pdf'.format(today))
     filename.write_bytes(response.content)
 
-    return 'report_pulls/fl_summary_pdf_{}.pdf'.format(today)
+    return '../state_data/florida/report_pulls/fl_summary_pdf_{}.pdf'.format(today)
 
 
-def extract_fl_df_from_pdf(file_path='report_pulls/fl_summary_pdf_{}.pdf'.format(today)):
+def extract_fl_df_from_pdf(file_path='../state_data/florida/report_pulls/fl_summary_pdf_{}.pdf'.format(today)):
     """
     Pulls the pdf from the report_pulls directory and uses tabula-py to create a list of pandas dataframes.
     Then iterates over those dataframes to clean input (remove mixed header/NaN first 2 rows) and concatenates
@@ -39,7 +39,7 @@ def extract_fl_df_from_pdf(file_path='report_pulls/fl_summary_pdf_{}.pdf'.format
 
     lab_stats_df_list = tabula.read_pdf_with_template(
         input_path=file_path,
-        template_path='tabula_templates/fl_summary_pdf_2020-07-16.tabula-template.json'
+        template_path='../tabula_templates/fl_summary_pdf_2020-07-16.tabula-template.json'
     )
 
     # Removing junk header/NaN rows from each parsed dataframe
@@ -49,8 +49,16 @@ def extract_fl_df_from_pdf(file_path='report_pulls/fl_summary_pdf_{}.pdf'.format
     return lab_testing_df
 
 
-def write_df_to_csv(df, file_path='fl_csv_daily_files/lab_testing_data_{}.csv'.format(today)):
+def write_df_to_csv(df, file_path='../state_data/florida/fl_csv_daily_files/lab_testing_data_{}.csv'.format(today)):
+    """
+    Write pandas dataframe to csv
+
+    :param df: a pandas.DataFrame object
+    :param file_path: the desired filepath for your output csv
+    :return: the relative path to the file from the execution of this script
+    """
     df.to_csv(file_path, index=False)
+    return '../state_data/florida/fl_csv_daily_files/lab_testing_data_{}.csv'.format(today)
 
 
 if __name__ == '__main__':

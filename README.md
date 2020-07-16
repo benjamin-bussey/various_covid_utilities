@@ -15,17 +15,17 @@ To install:
   
     pip install -r requirements.txt
     
-To run:
+To run Florida Lab Testing Scraper Utility:
 
 
   1. Navigate to the root of this various_covid_utilities directory and type:
   
-    python scrapers.py
+    python scrapers/florida_scraping.py
     
     
   2.  This will generate 2 files:
-  - A PDF pull date-marked today in report_pulls
-  - A CSV datemarked in fl_csv_daily_files
+  - A PDF pull date-marked today in state_data/florida/report_pulls
+  - A CSV date-marked in state_data/florida/fl_csv_daily_files
 
 Misc:
 - If you aren't interested in the csv output and would instead liek to work directly with a pandas dataframe, you can use the return (pd.DataFrame) from extract_fl_df_from_pdf(path-to-pdf)
