@@ -28,6 +28,6 @@ To run:
   - A CSV datemarked in fl_csv_daily_files
 
 Misc:
-- If you aren't interested in the csv output and would instead liek to work directly with a pandas dataframe, you can use the return (pd.DataFrame) from extract_fl_df_from_df(path-to-pdf)
+- If you aren't interested in the csv output and would instead liek to work directly with a pandas dataframe, you can use the return (pd.DataFrame) from extract_fl_df_from_pdf(path-to-pdf)
 - If the number of pages needing to be scraped changes in the daily report, simply copy the 'tabula_templates\fl_summary_pdf_2020-07-16.tabula-template.json' file and edit its entries to include more/less pages
   

@@ -42,6 +42,7 @@ def extract_fl_df_from_pdf(file_path='report_pulls/fl_summary_pdf_{}.pdf'.format
         template_path='tabula_templates/fl_summary_pdf_2020-07-16.tabula-template.json'
     )
 
+    # Removing junk header/NaN rows from each parsed dataframe
     lab_testing_df = pd.concat(df.drop([0, 1]) for df in lab_stats_df_list)
     lab_testing_df.columns = COLUMNS
 
