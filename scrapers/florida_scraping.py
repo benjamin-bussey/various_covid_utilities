@@ -39,7 +39,7 @@ def extract_fl_df_from_pdf(file_path='../state_data/florida/report_pulls/fl_summ
 
     lab_stats_df_list = tabula.read_pdf_with_template(
         input_path=file_path,
-        template_path='../tabula_templates/fl_summary_pdf_2020-07-16.tabula-template.json'
+        template_path=f'../tabula_templates/fl_summary_pdf_{today}.tabula-template.json'
     )
 
     # Removing junk header/NaN rows from each parsed dataframe
