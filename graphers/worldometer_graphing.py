@@ -2,11 +2,9 @@ import matplotlib.pyplot as plt
 import constants
 from scrapers.worldometer_scraping import get_worldometer_world_data, get_worldometer_us_data
 
-plt.figure(figsize=(20, 10))
 
-
-def generate_countries_scatterplot(df=get_worldometer_world_data(), data_filter=constants.G7_COUNTRIES,
-                                   title_modifier='G7 Country'):
+def generate_countries_scatterplot(df=get_worldometer_world_data(), data_filter=constants.BENS_COUNTRIES,
+                                   title_modifier='G7 Country Analysis'):
 
     plot_df = df[df['Country/Entity'].isin(data_filter)]
 
@@ -15,7 +13,9 @@ def generate_countries_scatterplot(df=get_worldometer_world_data(), data_filter=
         y='Deaths per 1M pop',
         c='Total Cases',
         colormap='YlOrRd',
+        figsize=(20, 10)
     )
+
 
     ax1.set_facecolor('xkcd:black')
 
@@ -46,6 +46,7 @@ def generate_state_scatterplot(df=get_worldometer_us_data(), data_filter=constan
         y='Deaths per 1M pop',
         c='Total Cases',
         colormap='YlOrRd',
+        figsize=(20, 10)
     )
 
     ax2.set_facecolor('xkcd:black')

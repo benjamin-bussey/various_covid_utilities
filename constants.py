@@ -61,7 +61,8 @@ BENS_COUNTRIES = [
     'Norway',
     'Finland',
     'New Zealand',
-    'Canada'
+    'Canada',
+    'Ireland'
 ]
 
 US_STATES = [
