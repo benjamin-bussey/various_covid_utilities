@@ -23,13 +23,11 @@ def get_worldometer_world_data():
                 pass
             else:
                 for col_pos, col in enumerate(cols):
-                    if col_pos in [2, 4, 6, 7, 8, 9, 10, 11, 12]:
-                        try:
-                            row_data.append(int(col.text.replace(',', '')))
-                        except ValueError:
-                            row_data.append(None)
-                    else:
+                    try:
+                        row_data.append(int(col.text.replace(',', '')))
+                    except ValueError:
                         row_data.append(col.text)
+
                 data.append(row_data)
 
     country_df = pd.DataFrame(data, columns=constants.ALL_COUNTRIES_DF_HEADERS).set_index('Rank')
@@ -53,19 +51,15 @@ def get_worldometer_us_data():
             row_data = []
             cols = row.find_all('td')
             for col_pos, col in enumerate(cols):
-                if col_pos not in (10, 11):
-                    value = col.text.strip('\n')
-                    if col_pos in (1, 3, 5, 6, 7, 8, 9):
-                        try:
-                            row_data.append(int(value.replace(',', '')))
-                        except ValueError:
-                            row_data.append(value)
-                    else:
-                        row_data.append(col.text.strip('\n'))
+                value = col.text.strip('\n').strip()
+                try:
+                    row_data.append(int(value.replace(',', '')))
+                except ValueError:
+                    row_data.append(value)
 
             data.append(row_data)
 
-    us_state_df = pd.DataFrame(data, columns=constants.US_STATES_DF_HEADERS)
+    us_state_df = pd.DataFrame(data, columns=constants.US_STATES_DF_HEADERS).set_index('Rank')
 
     return us_state_df
 

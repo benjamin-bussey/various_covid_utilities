@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 
 def create_georgia_boxplot():
@@ -20,13 +20,10 @@ def create_georgia_boxplot():
             except:
                 print(death)
 
-    red_square = dict(markerfacecolor='r', marker='s')
-    fig, ax = plt.subplots()
-    ax.set_title('Georgia COVID-19 Deaths')
-    ax.set_ylabel('Deaths')
-    ax.set_xlabel('Age')
-
-    ax.boxplot(deaths_list_clean, vert=False, flierprops=red_square)
+    fig = px.box(
+        y=deaths_list_clean,
+        title="Georgia COVID-19 Deaths"
+    )
     fig.show()
 
 

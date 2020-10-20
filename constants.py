@@ -142,14 +142,19 @@ ALL_COUNTRIES_DF_HEADERS = [
 ]
 
 US_STATES_DF_HEADERS = [
+        'Rank',
         'State',
         'Total Cases',
         'New Cases',
         'Total Deaths',
         'New Deaths',
+        'Total Recovered',
         'Active Cases',
         'Tot Cases per 1M pop',
         'Deaths per 1M pop',
         'Total Tests',
         'Tests per 1M pop',
+        'Population',
+        'Source',
+        'Projections'
 ]
