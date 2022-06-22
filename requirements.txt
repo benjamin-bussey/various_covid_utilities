@@ -12,7 +12,7 @@ kiwisolver==1.2.0
 lxml==4.5.2
 matplotlib==3.2.2
 munch==2.5.0
-numpy==1.19.0
+numpy==1.22.0
 pandas==1.0.5
 plotly==4.9.0
 pyparsing==2.4.7
